@@ -1,68 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My Unity Game</title>
-    <style>
-        body, html {
-            margin: 0;
-            overflow: hidden;
-            height: 100%;
-        }
-        #gameContainer {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            overflow: hidden;
-        }
-        #startButton {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: black;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <div id="gameContainer"></div>
-    <div id="startButton">Click to Start</div>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Freenaio The Game</title>
+  </head>
+  <body style="text-align: center">
+    <canvas id="unity-canvas" width=960 height=600 style="width: 960px; height: 600px; background: #231F20"></canvas>
+    <script src="Build/asdasdasd.loader.js"></script>
     <script>
-        var buildUrl = "Build";
-        var loaderUrl = buildUrl + "/test6.loader.js";
-        var config = {
-            dataUrl: buildUrl + "/test6.data",
-            frameworkUrl: buildUrl + "/test6.framework.js",
-            codeUrl: buildUrl + "/test6.wasm",
-            streamingAssetsUrl: "StreamingAssets",
-            companyName: "YourCompanyName",
-            productName: "YourProductName",
-            productVersion: "1.0",
-        };
-
-        var container = document.querySelector("#gameContainer");
-        var canvas = document.createElement("canvas");
-        canvas.width = 960;
-        canvas.height = 600;
-        container.appendChild(canvas);
-
-        function startUnity() {
-            createUnityInstance(canvas, config).then((unityInstance) => {
-                console.log("Unity instance created.");
-                document.getElementById("startButton").style.display = "none";
-            }).catch((message) => {
-                alert(message);
-            });
-        }
-
-        document.getElementById("startButton").addEventListener("click", function() {
-            startUnity();
-        });
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/asdasdasd.data",
+        frameworkUrl: "Build/asdasdasd.framework.js",
+        codeUrl: "Build/asdasdasd.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Freenaio Productions",
+        productName: "Freenaio The Game",
+        productVersion: "1.0",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
     </script>
-</body>
+  </body>
 </html>
